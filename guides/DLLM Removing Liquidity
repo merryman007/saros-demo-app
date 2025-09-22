@@ -1,0 +1,149 @@
+# Removing Liquidity
+
+### Overview <a href="#overview" id="overview"></a>
+
+This guide details how to pull liquidity from a Saros DLMM pool via your frontend. You can either partially decrease an existing position or close it entirely in one transaction.
+
+Key steps:
+
+1. Calculating the shares to remove
+2. Calling the appropriate instruction
+
+## Decreasing a Position
+
+To remove some liquidity from an existing position:
+
+1. Calculate the shares to remove from each bin
+2. Call the `decrease_position` instruction with these parameters
+
+#### Example Code
+
+```
+import { PublicKey, SystemProgram } from "@solana/web3.js";
+import { BN } from "@project-serum/anchor";
+import { TOKEN_2022_PROGRAM_ID, TOKEN_PROGRAM_ID } from "@solana/spl-token";
+
+// Define the shares to remove from each bin
+// The number of shares must match the position width (upper_bin_id - lower_bin_id + 1)
+const sharesToRemove = [
+  new BN(100000), // Shares to remove from bin 1
+  new BN(200000), // Shares to remove from bin 2
+  new BN(300000), // Shares to remove from bin 3
+  // ... and so on for each bin in the position
+];
+
+// Derive bin array PDAs
+const [binArrayLowerPda] = PublicKey.findProgramAddressSync(
+  [Buffer.from("bin_array"), pairPda.toBuffer(), Buffer.from([0])],
+  program.programId
+);
+
+const [binArrayUpperPda] = PublicKey.findProgramAddressSync(
+  [Buffer.from("bin_array"), pairPda.toBuffer(), Buffer.from([1])],
+  program.programId
+);
+
+await program.methods
+  .decreasePosition(sharesToRemove)
+  .accounts({
+    pair: pairPda,
+    position: positionPda,
+    binArrayLower: binArrayLowerPda,
+    binArrayUpper: binArrayUpperPda,
+    tokenMintX: tokenMintX,
+    tokenMintY: tokenMintY,
+    tokenVaultX: tokenVaultXPda,
+    tokenVaultY: tokenVaultYPda,
+    userVaultX: userVaultXPda,
+    userVaultY: userVaultYPda,
+    positionTokenAccount: positionTokenAccount,
+    tokenProgramX: TOKEN_PROGRAM_ID,
+    tokenProgramY: TOKEN_PROGRAM_ID,
+    positionTokenProgram: TOKEN_2022_PROGRAM_ID,
+    user: wallet.publicKey,
+  })
+  .signers([wallet.payer])
+  .rpc();
+​
+```
+
+## Closing a Position <a href="#closing-a-position" id="closing-a-position"></a>
+
+To completely close a position and remove all liquidity:
+
+1. Call the `close_position` instruction
+
+#### Example Code
+
+```
+import { PublicKey, SystemProgram } from "@solana/web3.js";
+import { TOKEN_2022_PROGRAM_ID, TOKEN_PROGRAM_ID } from "@solana/spl-token";
+
+// Derive bin array PDAs
+const [binArrayLowerPda] = PublicKey.findProgramAddressSync(
+  [Buffer.from("bin_array"), pairPda.toBuffer(), Buffer.from([0])],
+  program.programId
+);
+
+const [binArrayUpperPda] = PublicKey.findProgramAddressSync(
+  [Buffer.from("bin_array"), pairPda.toBuffer(), Buffer.from([1])],
+  program.programId
+);
+
+await program.methods
+  .closePosition()
+  .accounts({
+    pair: pairPda,
+    position: positionPda,
+    binArrayLower: binArrayLowerPda,
+    binArrayUpper: binArrayUpperPda,
+    tokenMintX: tokenMintX,
+    tokenMintY: tokenMintY,
+    tokenVaultX: tokenVaultXPda,
+    tokenVaultY: tokenVaultYPda,
+    userVaultX: userVaultXPda,
+    userVaultY: userVaultYPda,
+    positionTokenAccount: positionTokenAccount,
+    tokenProgramX: TOKEN_PROGRAM_ID,
+    tokenProgramY: TOKEN_PROGRAM_ID,
+    positionTokenProgram: TOKEN_2022_PROGRAM_ID,
+    user: wallet.publicKey,
+  })
+  .signers([wallet.payer])
+  .rpc();
+​
+```
+
+## Calculating Shares to Remove <a href="#calculating-shares-to-remove" id="calculating-shares-to-remove"></a>
+
+When decreasing a position, you need to specify the number of shares to remove from each bin. The number of shares must match the position width (upper\_bin\_id - lower\_bin\_id + 1).
+
+You can calculate the shares to remove based on:
+
+* The percentage of liquidity you want to remove
+* The current liquidity in each bin
+
+#### Example Calculation <a href="#example-calculation" id="example-calculation"></a>
+
+```
+// Calculate shares to remove based on percentage
+const calculateSharesToRemove = (position, percentageToRemove) => {
+  const positionWidth = position.upper_bin_id - position.lower_bin_id + 1;
+  const sharesToRemove = [];
+  
+  for (let i = 0; i < positionWidth; i++) {
+    const currentShares = position.liquidity_shares[i];
+    const sharesToRemoveFromBin = currentShares.mul(new BN(percentageToRemove)).div(new BN(10000));
+    sharesToRemove.push(sharesToRemoveFromBin);
+  }
+  
+  return sharesToRemove;
+};
+
+// Example: Remove 50% of liquidity from a position
+const sharesToRemove = calculateSharesToRemove(position, 5000);
+```
+
+* **width**: number of bins in the position
+* **liquidity\_shares**: existing shares per bin
+* **percentageToRemove**: e.g. 5000 = 50%
