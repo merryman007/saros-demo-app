@@ -38,17 +38,17 @@ export function MarketAnalytics({ pools }: MarketAnalyticsProps) {
     ? hourlyData.reduce((max, current) => current.volume > max.volume ? current : max)
     : null;
 
-  // Chart configurations
-  const volumeChartConfig: ChartConfig = {
-    volume: {
-      label: "Volume",
-      color: "#06b6d4",
-    },
-    trades: {
-      label: "Trades",
-      color: "#10b981",
-    },
-  };
+  // Chart configurations (commented out as unused)
+  // const volumeChartConfig: ChartConfig = {
+  //   volume: {
+  //     label: "Volume",
+  //     color: "#06b6d4",
+  //   },
+  //   trades: {
+  //     label: "Trades",
+  //     color: "#10b981",
+  //   },
+  // };
 
   const priceChartConfig: ChartConfig = {};
 
@@ -229,7 +229,7 @@ export function MarketAnalytics({ pools }: MarketAnalyticsProps) {
                   fillOpacity={1}
                   fill="url(#volumeGradient)"
                   strokeWidth={2}
-                  onClick={(data: any) => {
+                  onClick={(data: { payload?: { time: string; volume: number } }) => {
                     if (data && data.payload) {
                       const time = data.payload.time;
                       setActiveDataPoint(time);
