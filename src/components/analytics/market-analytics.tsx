@@ -229,10 +229,12 @@ export function MarketAnalytics({ pools }: MarketAnalyticsProps) {
                   fillOpacity={1}
                   fill="url(#volumeGradient)"
                   strokeWidth={2}
-                  onClick={(data) => {
-                    const time = data.payload.time;
-                    setActiveDataPoint(time);
-                    console.log(`Selected ${time}: $${data.payload.volume.toLocaleString()} volume`);
+                  onClick={(data: any) => {
+                    if (data && data.payload) {
+                      const time = data.payload.time;
+                      setActiveDataPoint(time);
+                      console.log(`Selected ${time}: ${data.payload.volume.toLocaleString()} volume`);
+                    }
                   }}
                   style={{ cursor: 'pointer' }}
                 />
