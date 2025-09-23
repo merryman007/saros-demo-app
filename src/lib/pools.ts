@@ -55,8 +55,8 @@ export const fetchAllPools = async (): Promise<Pool[]> => {
         console.log(`Successfully loaded ${allPools.length} real DLMM pools from fetch_pools.js data`);
         return allPools;
       }
-    } catch {
-      console.log("Real pool data not available, falling back to pools.json");
+    } catch (error) {
+      console.log("Real pool data not available, falling back to pools.json", error);
     }
 
     // Fallback to pools.json file

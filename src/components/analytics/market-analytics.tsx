@@ -14,7 +14,6 @@ interface MarketAnalyticsProps {
 export function MarketAnalytics({ pools }: MarketAnalyticsProps) {
   const [timeRange, setTimeRange] = useState<string>("7d");
   const [selectedMetric, setSelectedMetric] = useState<string>("volume");
-  const [activeDataPoint, setActiveDataPoint] = useState<string | null>(null);
 
   // Generate market data
   const tradingPatterns = generateTradingPatterns(pools, timeRange);
@@ -166,11 +165,6 @@ export function MarketAnalytics({ pools }: MarketAnalyticsProps) {
               • Peak: {peakHour.time} (${peakHour.volume.toLocaleString()})
             </span>
           )}
-          {activeDataPoint && (
-            <span className="text-sm font-normal text-green-400 ml-2">
-              • Selected: {activeDataPoint}
-            </span>
-          )}
         </h3>
         <div className="h-80 w-full" style={{ minHeight: '320px' }}>
           <ResponsiveContainer width="100%" height="100%">
@@ -229,14 +223,6 @@ export function MarketAnalytics({ pools }: MarketAnalyticsProps) {
                   fillOpacity={1}
                   fill="url(#volumeGradient)"
                   strokeWidth={2}
-                  onClick={(data: { payload?: { time: string; volume: number } }) => {
-                    if (data && data.payload) {
-                      const time = data.payload.time;
-                      setActiveDataPoint(time);
-                      console.log(`Selected ${time}: ${data.payload.volume.toLocaleString()} volume`);
-                    }
-                  }}
-                  style={{ cursor: 'pointer' }}
                 />
                 <Line
                   yAxisId="trades"
@@ -245,12 +231,6 @@ export function MarketAnalytics({ pools }: MarketAnalyticsProps) {
                   stroke="#10b981"
                   strokeWidth={3}
                   dot={false}
-                  onClick={(data) => {
-                    const time = data.payload.time;
-                    setActiveDataPoint(time);
-                    console.log(`Selected ${time}: ${data.payload.trades} trades`);
-                  }}
-                  style={{ cursor: 'pointer' }}
                 />
               </ComposedChart>
             </ResponsiveContainer>
