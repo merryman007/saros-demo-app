@@ -9,22 +9,23 @@ import {
   TrendingUp,
   Wallet,
   Activity,
+  ArrowLeftRight,
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const menuItems = [
   {
-    icon: BarChart3,
-    label: "Bin Distribution",
-    href: "/",
-    description: "Liquidity distribution across bins",
-  },
-  {
     icon: Layers,
     label: "Pools",
-    href: "/pools",
+    href: "/",
     description: "DLMM pool overview",
+  },
+  {
+    icon: ArrowLeftRight,
+    label: "Swap",
+    href: "/swap",
+    description: "Trade tokens",
   },
   {
     icon: TrendingUp,

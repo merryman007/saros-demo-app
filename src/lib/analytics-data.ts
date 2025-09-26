@@ -35,8 +35,36 @@ export function generateHistoricalData(pool: Pool, timeRange: string) {
   return data;
 }
 
-// Generate bin distribution data for liquidity analytics using real pool characteristics
-export function generateBinDistributionData(pool: Pool) {
+// Load real bin distribution data for production analytics
+export async function loadRealBinData(pool: Pool) {
+  try {
+    console.log("🔧 DEBUG: loadRealBinData called for:", pool.address);
+    const { getBinDataForPool } = await import('./bin-data-adapter');
+    console.log("🔧 DEBUG: Calling getBinDataForPool...");
+    const realBinData = await getBinDataForPool(pool.address);
+    console.log("🔧 DEBUG: getBinDataForPool returned:", realBinData?.length || 0, "items");
+
+    if (realBinData && realBinData.length > 0) {
+      console.log(`Loaded real bin data for ${pool.name} (${realBinData.length} bins)`);
+      return realBinData;
+    }
+
+    console.warn(`No bin data available for pool ${pool.name}. Run 'npm run fetch_bins' to generate real data.`);
+    return [];
+  } catch (error) {
+    console.error("Error loading bin data:", error);
+    return [];
+  }
+}
+
+// Legacy function - will be removed
+export async function generateBinDistributionData(pool: Pool) {
+  console.warn("⚠️ generateBinDistributionData is deprecated. Use loadRealBinData instead.");
+  return await loadRealBinData(pool);
+}
+
+// For reference only - this simulated data generation is removed in production
+function generateSimulatedBinData(pool: Pool) {
   const bins = [];
 
   // Use real pool characteristics to determine price and liquidity distribution

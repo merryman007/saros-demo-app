@@ -1,0 +1,106 @@
+SAROS DLMM POOLS SUMMARY
+========================
+Fetched: 2025-09-26T12:12:18.032Z
+Total Pools: 132
+Unique Tokens: 28
+
+FJug3z58gssSTDhVNkTse5fP8GRZzuidf9SRtfB2RhDe/USD1ttGY1N17NEEHLmELoaybftRBUSErhqYiQzvEmuB | TVL: $     9652.56 | Active: ✅
+4C1ETR4XK1Ys3JFhMz6At66kRrWLVvUFUSLLQmMwpump/SAROS | TVL: $    42599.07 | Active: ✅
+mae8vJGf8Wju8Ron1oDTQVaTGGBpcpWDwoRQJALMMf2/USDC | TVL: $  1139463.12 | Active: ✅
+2kkwPP6Y5v4aSteLo2R6uqmx3aQ6Veb1xDcRXHsNbonk/SOL | TVL: $        0.01 | Active: ❌
+DR5cCdABB5sZjyVF7i3mestghxGzvHawQk35sP9QFNjf/zBTCug3er3tLyffELcvDNrKkCymbPWysGcWihESYfLg | TVL: $       10.00 | Active: ✅
+SAROS/USDC           | TVL: $    76237.16 | Active: ✅
+DEBUTr2WcEsjkwKhqbRLqnuFKstX1MrEuvaz5xcoQTgn/C98 | TVL: $     1029.02 | Active: ✅
+8ncucXv6U6epZKHPbgaEBcEK399TpHGKCquSt4RnmX4f/SOL | TVL: $        0.13 | Active: ❌
+$WIF/USDC            | TVL: $        0.00 | Active: ❌
+4C1ETR4XK1Ys3JFhMz6At66kRrWLVvUFUSLLQmMwpump/USDC | TVL: $        0.00 | Active: ❌
+B8GKqTDGYc7F6udTHjYeazZ4dFCRkrwK2mBQNS4igqTv/USD1ttGY1N17NEEHLmELoaybftRBUSErhqYiQzvEmuB | TVL: $    79134.06 | Active: ✅
+JitoSOL/SOL          | TVL: $        0.00 | Active: ❌
+5mjbjHRb327yvcWUc5WPywhCbYi32pqUqxPUCtpipBLV/SOL | TVL: $    51541.45 | Active: ✅
+H8xQ6poBjB9DTPMDTKWzWPrnxu4bDEhybxiouF8Ppump/SOL | TVL: $       33.20 | Active: ✅
+USDSwr9ApdHk5bvJKMjzff41FfuX8bSxdKcR81vTwcA/USDC | TVL: $   442041.43 | Active: ✅
+JUP/SOL              | TVL: $        0.02 | Active: ❌
+PYTH/USDC            | TVL: $        0.00 | Active: ❌
+SOL/USDC             | TVL: $      484.17 | Active: ✅
+DR5cCdABB5sZjyVF7i3mestghxGzvHawQk35sP9QFNjf/cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij | TVL: $       50.00 | Active: ✅
+DR5cCdABB5sZjyVF7i3mestghxGzvHawQk35sP9QFNjf/uniBKsEV37qLRFZD7v3Z9drX6voyiCM8WcaePqeSSLc | TVL: $       50.00 | Active: ✅
+DEBUTr2WcEsjkwKhqbRLqnuFKstX1MrEuvaz5xcoQTgn/SOL | TVL: $        0.00 | Active: ❌
+memsZQiMFoXYwuZj6fFEaRFNgyLGiLDEDqHz5PwtvRa/USDC | TVL: $ 57940756.67 | Active: ✅
+MPLX/USDC            | TVL: $        5.74 | Active: ✅
+DEBUTr2WcEsjkwKhqbRLqnuFKstX1MrEuvaz5xcoQTgn/SOL | TVL: $     7836.97 | Active: ✅
+Dz9mQ9NzkBcCsuGPFJ3r1bS4wgqKMHBPiVuniW8Mbonk/SAROS | TVL: $        0.00 | Active: ❌
+DEBUTr2WcEsjkwKhqbRLqnuFKstX1MrEuvaz5xcoQTgn/USDC | TVL: $ 19718893.11 | Active: ✅
+EAsWWNGqsHkFMgXh4QFBRmGpmorpTTpWe7jwcNT3sBLV/USDC | TVL: $11561923212.39 | Active: ✅
+memsZQiMFoXYwuZj6fFEaRFNgyLGiLDEDqHz5PwtvRa/C98 | TVL: $   645645.88 | Active: ✅
+Bonk/SAROS           | TVL: $ 10012583.58 | Active: ✅
+4C1ETR4XK1Ys3JFhMz6At66kRrWLVvUFUSLLQmMwpump/SOL | TVL: $        0.39 | Active: ❌
+DEBUTr2WcEsjkwKhqbRLqnuFKstX1MrEuvaz5xcoQTgn/SOL | TVL: $        0.00 | Active: ❌
+JUP/SOL              | TVL: $        0.21 | Active: ❌
+RAY/USDC             | TVL: $        0.00 | Active: ❌
+memsZQiMFoXYwuZj6fFEaRFNgyLGiLDEDqHz5PwtvRa/SOL | TVL: $    43811.32 | Active: ✅
+SNTR/SAROS           | TVL: $ 18677235.88 | Active: ✅
+3iQL8BFS2vE7mww4ehAqQHAsbmRNCrPxizWAT2Zfyr9y/USDC | TVL: $        0.00 | Active: ❌
+mae8vJGf8Wju8Ron1oDTQVaTGGBpcpWDwoRQJALMMf2/SAROS | TVL: $ 22235900.03 | Active: ✅
+ORCA/USDC            | TVL: $        0.00 | Active: ❌
+WLFinEv6ypjkczcS83FZqFpgFZYwQXutRbxGe7oC16g/SOL | TVL: $        0.19 | Active: ❌
+C98/USDC             | TVL: $    25438.78 | Active: ✅
+5NJfQ6UQ1LJTxtKLrsZQcbiSUWequSD6aZLNJaN7Zviv/SOL | TVL: $      431.72 | Active: ✅
+DR5cCdABB5sZjyVF7i3mestghxGzvHawQk35sP9QFNjf/CtzPWv73Sn1dMGVU3ZtLv9yWSyUAanBni19YWDaznnkn | TVL: $       50.00 | Active: ✅
+EGNjqB7LfRxpkbVMSroA6UaKtGPuy6wWPx7bmijmPuCD/SAROS | TVL: $ 11953863.62 | Active: ✅
+DR5cCdABB5sZjyVF7i3mestghxGzvHawQk35sP9QFNjf/5XZw2LKTyrfvfiskJ78AMpackRjPcyCif1WhUsPDuVqQ | TVL: $       20.00 | Active: ✅
+JTO/USDC             | TVL: $        0.00 | Active: ❌
+USDT/USDC            | TVL: $        1.19 | Active: ✅
+C98/USDC             | TVL: $   249483.90 | Active: ✅
+IO/USDC              | TVL: $        0.00 | Active: ❌
+uniBKsEV37qLRFZD7v3Z9drX6voyiCM8WcaePqeSSLc/cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij | TVL: $        3.00 | Active: ✅
+AVw2QGVkXJPRPRjLAceXVoLqU5DVtJ53mdgMXp14yGit/USD1ttGY1N17NEEHLmELoaybftRBUSErhqYiQzvEmuB | TVL: $    29824.75 | Active: ✅
+JitoSOL/USDC         | TVL: $        0.00 | Active: ❌
+LAYER4xPpTCb3QL8S9u41EAhAX7mhBn8Q6xMTwY2Yzc/USDC | TVL: $        0.00 | Active: ❌
+3kRSZBRUYvXGJ8t3mtYEYBXEgEZevADd2Se7M1AYP6WN/USDT | TVL: $        0.00 | Active: ❌
+2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv/USDC | TVL: $        0.00 | Active: ❌
+RENDER/USDC          | TVL: $        0.00 | Active: ❌
+uniBKsEV37qLRFZD7v3Z9drX6voyiCM8WcaePqeSSLc/CtzPWv73Sn1dMGVU3ZtLv9yWSyUAanBni19YWDaznnkn | TVL: $      423.90 | Active: ✅
+USD1ttGY1N17NEEHLmELoaybftRBUSErhqYiQzvEmuB/SOL | TVL: $       49.93 | Active: ✅
+JUP/SOL              | TVL: $        0.00 | Active: ❌
+G48VjpiiQoj4zesrch6vnNQYcVSNKojmsLAuuLpHDzAE/SOL | TVL: $        0.49 | Active: ❌
+9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump/SOL | TVL: $       12.14 | Active: ✅
+uniBKsEV37qLRFZD7v3Z9drX6voyiCM8WcaePqeSSLc/WBTC | TVL: $        4.57 | Active: ✅
+USDC/USDT            | TVL: $        0.00 | Active: ❌
+SNTR/USDC            | TVL: $887054369486.73 | Active: ✅
+DR5cCdABB5sZjyVF7i3mestghxGzvHawQk35sP9QFNjf/WBTC | TVL: $       20.00 | Active: ✅
+pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn/USDC | TVL: $        0.00 | Active: ❌
+KMNO/USDC            | TVL: $        0.00 | Active: ❌
+SAROS/C98            | TVL: $        6.12 | Active: ✅
+mae8vJGf8Wju8Ron1oDTQVaTGGBpcpWDwoRQJALMMf2/USDC | TVL: $      422.17 | Active: ✅
+SAROS/SOL            | TVL: $        0.00 | Active: ❌
+CRAMvzDsSpXYsFpcoDr6vFLJMBeftez1E7277xwPpump/SOL | TVL: $      418.21 | Active: ✅
+ALTP6gug9wv5mFtx2tSU1YYZ1NrEc2chDdMPoJA8f8pu/USD1ttGY1N17NEEHLmELoaybftRBUSErhqYiQzvEmuB | TVL: $   108927.81 | Active: ✅
+JUP/SOL              | TVL: $        0.00 | Active: ❌
+3kRSZBRUYvXGJ8t3mtYEYBXEgEZevADd2Se7M1AYP6WN/SOL | TVL: $        0.00 | Active: ❌
+SAROS/USDC           | TVL: $        0.00 | Active: ❌
+9tqjeRS1swj36Ee5C1iGiwAxjQJNGAVCzaTLwFY8bonk/SOL | TVL: $        0.04 | Active: ❌
+EAsWWNGqsHkFMgXh4QFBRmGpmorpTTpWe7jwcNT3sBLV/USDC | TVL: $        0.01 | Active: ❌
+SAROS/USDC           | TVL: $        3.01 | Active: ✅
+SOL/USDT             | TVL: $      752.60 | Active: ✅
+USDC/USDT            | TVL: $   260169.55 | Active: ✅
+Ey59PH7Z4BFU4HjyKnyMdWt5GGN76KazTAwQihoUXRnk/USDC | TVL: $ 15788857.86 | Active: ✅
+SOL/USDT             | TVL: $        8.89 | Active: ✅
+DEBUTr2WcEsjkwKhqbRLqnuFKstX1MrEuvaz5xcoQTgn/SAROS | TVL: $ 10777181.08 | Active: ✅
+DR5cCdABB5sZjyVF7i3mestghxGzvHawQk35sP9QFNjf/CtzPWv73Sn1dMGVU3ZtLv9yWSyUAanBni19YWDaznnkn | TVL: $        0.00 | Active: ❌
+EGNjqB7LfRxpkbVMSroA6UaKtGPuy6wWPx7bmijmPuCD/SOL | TVL: $    60047.61 | Active: ✅
+SAROS/USDT           | TVL: $        0.07 | Active: ❌
+6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN/USDC | TVL: $        0.00 | Active: ❌
+jokeSc37tSJ5V5MYTmLtKh3SZf11vWd2i8eZC9sd74m/SOL | TVL: $    52274.28 | Active: ✅
+jokeSc37tSJ5V5MYTmLtKh3SZf11vWd2i8eZC9sd74m/USDC | TVL: $ 51502689.04 | Active: ✅
+pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn/USDT | TVL: $      266.43 | Active: ✅
+3Nf6jFEFKtTgnJBpThEisWVPA3WSzsjSdZvUWDP117AF/SAROS | TVL: $149358082.78 | Active: ✅
+JUP/USDC             | TVL: $        0.07 | Active: ❌
+Dz9mQ9NzkBcCsuGPFJ3r1bS4wgqKMHBPiVuniW8Mbonk/SAROS | TVL: $        0.00 | Active: ❌
+3kRSZBRUYvXGJ8t3mtYEYBXEgEZevADd2Se7M1AYP6WN/USDT | TVL: $    24868.60 | Active: ✅
+SOL/USDC             | TVL: $      680.83 | Active: ✅
+SOL/USDC             | TVL: $        0.00 | Active: ❌
+W/USDC               | TVL: $        0.00 | Active: ❌
+EGNjqB7LfRxpkbVMSroA6UaKtGPuy6wWPx7bmijmPuCD/C98 | TVL: $   187826.09 | Active: ✅
+SAROS/C98            | TVL: $   250714.53 | Active: ✅
+FuyeX8cpctBwQVDFYgKxYh1JgiXCkK9g4RBVCXm4pump/SOL | TVL: $        0.00 | Active: ❌
+C98/SAROS            | TVL: $       15.43 | Active: ✅

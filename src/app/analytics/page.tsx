@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { fetchAllPools, Pool } from "@/lib/pools";
 import { PoolPerformanceAnalytics } from "@/components/analytics/pool-performance";
-import { LiquidityDistributionAnalytics } from "@/components/analytics/liquidity-distribution";
 import { MarketAnalytics } from "@/components/analytics/market-analytics";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -50,18 +49,12 @@ export default function AnalyticsPage() {
         </div>
 
         <Tabs defaultValue="pool-performance" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 bg-gray-900 border border-gray-800">
+          <TabsList className="grid w-full grid-cols-2 bg-gray-900 border border-gray-800">
             <TabsTrigger
               value="pool-performance"
               className="data-[state=active]:bg-purple-600 data-[state=active]:text-white"
             >
               Pool Performance
-            </TabsTrigger>
-            <TabsTrigger
-              value="liquidity-distribution"
-              className="data-[state=active]:bg-purple-600 data-[state=active]:text-white"
-            >
-              Liquidity Distribution
             </TabsTrigger>
             <TabsTrigger
               value="market-analytics"
@@ -73,10 +66,6 @@ export default function AnalyticsPage() {
 
           <TabsContent value="pool-performance" className="mt-6">
             <PoolPerformanceAnalytics pools={pools} />
-          </TabsContent>
-
-          <TabsContent value="liquidity-distribution" className="mt-6">
-            <LiquidityDistributionAnalytics pools={pools} />
           </TabsContent>
 
           <TabsContent value="market-analytics" className="mt-6">

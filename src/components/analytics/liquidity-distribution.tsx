@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Pool } from "@/lib/pools";
-import { generateBinDistributionData } from "@/lib/analytics-data";
+import { loadRealBinData } from "@/lib/analytics-data";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ScatterChart, Scatter, PieChart, Pie, Cell } from "recharts";
@@ -13,15 +13,67 @@ interface LiquidityDistributionAnalyticsProps {
 
 export function LiquidityDistributionAnalytics({ pools }: LiquidityDistributionAnalyticsProps) {
   const [selectedPool, setSelectedPool] = useState<string>(pools[0]?.address || "");
+  const [binData, setBinData] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const pool = pools.find(p => p.address === selectedPool);
+
+  // Load bin data when pool changes
+  useEffect(() => {
+    if (!pool) return;
+
+    const loadBinData = async () => {
+      console.log("🔧 DEBUG: Loading bin data for pool:", pool.address, pool.name);
+      setLoading(true);
+      try {
+        const data = await loadRealBinData(pool);
+        console.log("🔧 DEBUG: Received bin data:", data?.length || 0, "bins");
+        console.log("🔧 DEBUG: Sample data:", data?.[0]);
+        setBinData(data);
+      } catch (error) {
+        console.error("Error loading bin data:", error);
+        setBinData([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadBinData();
+  }, [pool]);
 
   if (!pool) {
     return <div className="text-gray-400">No pool selected</div>;
   }
 
-  // Generate bin distribution data
-  const binData = generateBinDistributionData(pool);
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <div className="text-gray-400">Loading bin data...</div>
+      </div>
+    );
+  }
+
+  if (binData.length === 0) {
+    return (
+      <div className="space-y-6">
+        <div className="flex flex-col items-center justify-center h-64 border border-dashed border-gray-700 rounded-lg bg-gray-900/50">
+          <div className="text-center space-y-3">
+            <div className="text-gray-400 text-lg font-medium">No Bin Data Available</div>
+            <div className="text-gray-500 text-sm max-w-md">
+              Real DLMM bin data is required to display liquidity distribution analytics.
+            </div>
+            <div className="bg-gray-800 border border-gray-700 rounded-lg p-4 font-mono text-sm text-gray-300">
+              <div className="text-gray-400 mb-2">Generate bin data:</div>
+              <code className="text-purple-400">npm run fetch_bins</code>
+              <div className="text-gray-500 mt-2 text-xs">
+                Fetches real bin data for top pools by TVL
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   // Calculate analytics
   const totalLiquidity = binData.reduce((sum, bin) => sum + bin.totalLiquidity, 0);

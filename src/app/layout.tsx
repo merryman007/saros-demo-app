@@ -1,5 +1,6 @@
 import "./globals.css";
 import { DashboardLayout } from "@/components/layout/dashboard-layout";
+import { WalletProviders } from "@/components/providers/wallet-provider";
 
 export default function RootLayout({
   children,
@@ -9,7 +10,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className="antialiased bg-black text-white">
-        <DashboardLayout>{children}</DashboardLayout>
+        <WalletProviders>
+          <DashboardLayout>{children}</DashboardLayout>
+        </WalletProviders>
       </body>
     </html>
   );

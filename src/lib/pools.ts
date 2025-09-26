@@ -42,41 +42,42 @@ export const fetchAllPools = async (): Promise<Pool[]> => {
   }
 
   try {
-    console.log("Loading DLMM pools from local data...");
+    console.log("Loading DLMM pools from enhanced database...");
 
-    // Try to load real pool data first
-    try {
-      const { loadRealPools } = await import('./real-pool-adapter');
-      const realPools = await loadRealPools();
+    // Try enhanced database first
+    const { loadEnhancedPools } = await import('./enhanced-pool-adapter');
+    const enhancedPools = await loadEnhancedPools();
 
-      if (realPools.length > 0) {
-        allPools = realPools;
-        lastFetch = now;
-        console.log(`Successfully loaded ${allPools.length} real DLMM pools from fetch_pools.js data`);
-        return allPools;
-      }
-    } catch (error) {
-      console.log("Real pool data not available, falling back to pools.json", error);
+    if (enhancedPools.length > 0) {
+      allPools = enhancedPools;
+      lastFetch = now;
+      console.log(`Successfully loaded ${allPools.length} pools from enhanced database`);
+      return allPools;
     }
 
-    // Fallback to pools.json file
-    const response = await fetch('/pools.json');
+    // Fallback to original real pool data
+    console.log("Enhanced database not available, falling back to pools.jsonl...");
 
-    if (!response.ok) {
-      throw new Error(`Failed to fetch pools.json: ${response.status}`);
+    const { loadRealPools } = await import('./real-pool-adapter');
+    const realPools = await loadRealPools();
+
+    if (realPools.length === 0) {
+      console.error("No pool data found. Please run data fetching script:");
+      console.error("- Enhanced: 'node fetch_pools_enhanced.js'");
+      console.error("- Basic: 'npm run fetch_pools'");
+      throw new Error("Pool data required. Run data fetch script first.");
     }
 
-    const data = await response.json();
-    allPools = data.pools || [];
-
+    allPools = realPools;
     lastFetch = now;
-    console.log(`Successfully loaded ${allPools.length} pools from pools.json fallback`);
+    console.log(`Successfully loaded ${allPools.length} pools from basic database`);
     return allPools;
 
   } catch (error) {
-    console.error("Error loading pools from local data:", error);
+    console.error("Error loading pool data:", error);
+    console.error("Run 'node fetch_pools_enhanced.js' for best results, or 'npm run fetch_pools' for basic data.");
 
-    // Return empty array on error to avoid crashes
+    // Return empty array - no fallback to demo data
     return [];
   }
 };

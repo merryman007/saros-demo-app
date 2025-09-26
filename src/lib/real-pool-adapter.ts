@@ -104,7 +104,7 @@ export async function loadRealPools(): Promise<Pool[]> {
     // Check if we have real pool data file
     const response = await fetch('/pools.jsonl');
     if (!response.ok) {
-      console.log("No real pool data found, using existing pools.json");
+      console.error("No real pool data found. Please run 'npm run fetch_pools' to generate pools.jsonl");
       return [];
     }
 
@@ -116,6 +116,13 @@ export async function loadRealPools(): Promise<Pool[]> {
       .filter(pool => pool.raw && pool.raw.poolAddress) // Only pools with valid data
       .map(convertRealPoolToPool)
       .filter(pool => pool.tvl > 10) // Filter out very small pools
+      .reduce((unique: Pool[], pool) => {
+        // Remove duplicates by pool address
+        if (!unique.some(p => p.address === pool.address)) {
+          unique.push(pool);
+        }
+        return unique;
+      }, [])
       .sort((a, b) => b.tvl - a.tvl); // Sort by TVL descending
 
     console.log(`Loaded ${convertedPools.length} real DLMM pools from fetch_pools.js data`);

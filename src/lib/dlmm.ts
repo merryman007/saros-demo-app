@@ -106,39 +106,9 @@ const WELL_KNOWN_TOKENS: Record<string, TokenInfo> = {
   },
 };
 
-// Popular demo pools to showcase different token pairs
-const DEMO_POOLS: PoolMetadata[] = [
-  {
-    tokenX: REAL_SOL_TOKEN,
-    tokenY: REAL_USDC_TOKEN,
-    binStep: 10,
-    poolAddress: "sol-usdc-main",
-  },
-  {
-    tokenX: WELL_KNOWN_TOKENS["SarosY6Vscao718M4A778z4CGtvcwcGef5M9MEH1LGL"],
-    tokenY: REAL_USDC_TOKEN,
-    binStep: 20,
-    poolAddress: "saros-usdc-main",
-  },
-  {
-    tokenX: WELL_KNOWN_TOKENS["C98A4nkJXhpVZNAZdHUA95RpTF3T4whtQubL3YobiUX9"],
-    tokenY: REAL_USDC_TOKEN,
-    binStep: 15,
-    poolAddress: "c98-usdc-main",
-  },
-  {
-    tokenX: WELL_KNOWN_TOKENS["DEBUTr2WcEsjkwKhqbRLqnuFKstX1MrEuvaz5xcoQTgn"],
-    tokenY: REAL_SOL_TOKEN,
-    binStep: 25,
-    poolAddress: "debut-sol-main",
-  }
-];
+// Removed DEMO_POOLS - using only real pool data from pools.jsonl
 
-// Function to get a random demo pool for variety
-const getRandomDemoPool = (): PoolMetadata => {
-  const randomIndex = Math.floor(Math.random() * DEMO_POOLS.length);
-  return DEMO_POOLS[randomIndex];
-};
+// Function removed - using only real pool data from pools.jsonl
 
 // Shared DLMM service instance
 const dlmmService = new LiquidityBookServices({
@@ -181,7 +151,7 @@ export const fetchPoolInfo = async (poolAddress: string) => {
 };
 
 export const getBinLiquidity = async (): Promise<BinLiquidityData[]> => {
-  console.log("getBinLiquidity function called - using local pool data...");
+  console.log("getBinLiquidity function called - using enhanced DLMM data...");
 
   // Check cache first
   const now = Date.now();
@@ -191,44 +161,62 @@ export const getBinLiquidity = async (): Promise<BinLiquidityData[]> => {
   }
 
   try {
-    // Use a random demo pool for variety (refreshes every 5 minutes due to cache)
-    const defaultPoolMetadata: PoolMetadata = getRandomDemoPool();
+    // Try enhanced bin data first
+    const { getEnhancedBinData } = await import('./enhanced-pool-adapter');
+    const enhancedBinData = await getEnhancedBinData();
 
-    console.log(`Using workshop pool: ${defaultPoolMetadata.tokenX.symbol}/${defaultPoolMetadata.tokenY.symbol}`);
+    if (enhancedBinData && enhancedBinData.length > 0) {
+      cachedBinData = enhancedBinData;
+      cacheTimestamp = Date.now();
+      console.log(`✅ Using enhanced bin data: ${enhancedBinData.length} bins`);
+      return cachedBinData;
+    }
 
-    // Generate realistic bin data with workshop pool metadata
-    console.log("Generating realistic bin data using workshop pool information...");
-    const binData = generateAlgorithmicBinData(undefined, defaultPoolMetadata);
+    // Fallback to algorithmic generation with real pool data
+    console.log("Enhanced bin data not available, generating from real pool data...");
+
+    const { loadRealPools } = await import('./real-pool-adapter');
+    const realPools = await loadRealPools();
+
+    if (realPools.length === 0) {
+      console.error("No pool data available. Please run data fetching script:");
+      console.error("- Enhanced: 'node fetch_pools_enhanced.js'");
+      console.error("- Basic: 'npm run fetch_pools'");
+      return [];
+    }
+
+    // Use the first real pool for bin data
+    const pool = realPools[0];
+    const poolMetadata: PoolMetadata = {
+      tokenX: pool.tokenX,
+      tokenY: pool.tokenY,
+      binStep: pool.binStep,
+      poolAddress: pool.address,
+    };
+
+    console.log(`Using real pool: ${pool.name} (${pool.address})`);
+
+    // Generate realistic bin data with real pool metadata
+    console.log("Generating algorithmic bin data using real pool information...");
+    const binData = generateAlgorithmicBinData(undefined, poolMetadata);
 
     // Cache the data
     cachedBinData = binData;
     cacheTimestamp = Date.now();
 
-    console.log(`Successfully generated ${binData.length} bins for ${defaultPoolMetadata.tokenX.symbol}/${defaultPoolMetadata.tokenY.symbol} pool`);
+    console.log(`Successfully generated ${binData.length} bins for ${pool.name}`);
     return binData;
 
   } catch (error) {
-    console.error("Error generating bin data:", error);
-    console.log("Falling back to minimal data");
-
-    // Fallback to real tokens
-    const defaultPoolMetadata: PoolMetadata = {
-      tokenX: REAL_SOL_TOKEN,
-      tokenY: REAL_USDC_TOKEN,
-      binStep: BIN_STEP,
-      poolAddress: "fallback",
-    };
-
-    const fallbackData = generateAlgorithmicBinData(undefined, defaultPoolMetadata);
-    cachedBinData = fallbackData;
-    cacheTimestamp = Date.now();
-    return fallbackData;
+    console.error("Error loading bin data:", error);
+    console.error("Run 'node fetch_pools_enhanced.js' for best results, or 'npm run fetch_pools' for basic data.");
+    return [];
   }
 };
 
 // Algorithmic bin data generation based on DLMM math
 const generateAlgorithmicBinData = (centerBinId?: number, poolMetadata?: PoolMetadata): BinLiquidityData[] => {
-  console.log("Generating algorithmic bin data for demonstration...");
+  console.log("Generating algorithmic bin data using real pool metadata...");
 
   // Use workshop active bin or default center
   const activeBinId = centerBinId || 8388608; // Default DLMM center

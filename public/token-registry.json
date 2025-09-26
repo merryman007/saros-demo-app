@@ -1,0 +1,534 @@
+{
+  "generated_at": "2025-09-26T11:59:35.937Z",
+  "jupiter_tokens": 287863,
+  "solana_tokens": 13581,
+  "tokens": {
+    "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R": {
+      "address": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
+      "symbol": "RAY",
+      "name": "Raydium",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R/logo.png",
+      "tags": [
+        "old-registry",
+        "solana-fm"
+      ],
+      "verified": true,
+      "source": "jupiter"
+    },
+    "SENBBKVCM7homnf5RX9zqpf1GFe935hnbU4uVzY1Y6M": {
+      "address": "SENBBKVCM7homnf5RX9zqpf1GFe935hnbU4uVzY1Y6M",
+      "symbol": "SNTR",
+      "name": "Sentre",
+      "decimals": 9,
+      "logoURI": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/SENBBKVCM7homnf5RX9zqpf1GFe935hnbU4uVzY1Y6M/logo.png",
+      "tags": [
+        "old-registry"
+      ],
+      "verified": true,
+      "source": "jupiter"
+    },
+    "3iQL8BFS2vE7mww4ehAqQHAsbmRNCrPxizWAT2Zfyr9y": {
+      "address": "3iQL8BFS2vE7mww4ehAqQHAsbmRNCrPxizWAT2Zfyr9y",
+      "symbol": "3IQL...YR9Y",
+      "name": "Unknown Token (3IQL...YR9Y)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "orcaEKTdK7LKz57vaAYr9QeNsVEPfiu6QeMU1kektZE": {
+      "address": "orcaEKTdK7LKz57vaAYr9QeNsVEPfiu6QeMU1kektZE",
+      "symbol": "ORCA",
+      "name": "Orca",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/orcaEKTdK7LKz57vaAYr9QeNsVEPfiu6QeMU1kektZE/logo.png",
+      "tags": [
+        "old-registry",
+        "solana-fm"
+      ],
+      "verified": true,
+      "source": "jupiter"
+    },
+    "WLFinEv6ypjkczcS83FZqFpgFZYwQXutRbxGe7oC16g": {
+      "address": "WLFinEv6ypjkczcS83FZqFpgFZYwQXutRbxGe7oC16g",
+      "symbol": "WLFI...C16G",
+      "name": "Unknown Token (WLFI...C16G)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "CtzPWv73Sn1dMGVU3ZtLv9yWSyUAanBni19YWDaznnkn": {
+      "address": "CtzPWv73Sn1dMGVU3ZtLv9yWSyUAanBni19YWDaznnkn",
+      "symbol": "CTZP...NNKN",
+      "name": "Unknown Token (CTZP...NNKN)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "5NJfQ6UQ1LJTxtKLrsZQcbiSUWequSD6aZLNJaN7Zviv": {
+      "address": "5NJfQ6UQ1LJTxtKLrsZQcbiSUWequSD6aZLNJaN7Zviv",
+      "symbol": "5NJF...ZVIV",
+      "name": "Unknown Token (5NJF...ZVIV)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "EGNjqB7LfRxpkbVMSroA6UaKtGPuy6wWPx7bmijmPuCD": {
+      "address": "EGNjqB7LfRxpkbVMSroA6UaKtGPuy6wWPx7bmijmPuCD",
+      "symbol": "EGNJ...PUCD",
+      "name": "Unknown Token (EGNJ...PUCD)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "5XZw2LKTyrfvfiskJ78AMpackRjPcyCif1WhUsPDuVqQ": {
+      "address": "5XZw2LKTyrfvfiskJ78AMpackRjPcyCif1WhUsPDuVqQ",
+      "symbol": "5XZW...UVQQ",
+      "name": "Unknown Token (5XZW...UVQQ)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL": {
+      "address": "jtojtomepa8beP8AuQc6eXt5FriJwfFMwQx2v2f9mCL",
+      "symbol": "JTO",
+      "name": "JITO",
+      "decimals": 9,
+      "logoURI": "https://metadata.jito.network/token/jto/image",
+      "tags": [
+        "community",
+        "solana-fm"
+      ],
+      "verified": true,
+      "source": "jupiter"
+    },
+    "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB": {
+      "address": "Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB",
+      "symbol": "USDT",
+      "name": "USDT",
+      "decimals": 6,
+      "logoURI": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB/logo.svg",
+      "tags": [
+        "old-registry",
+        "solana-fm"
+      ],
+      "verified": true,
+      "source": "jupiter"
+    },
+    "BZLbGTNCSFfoth2GYDtwr7e4imWzpR5jqcUuGEwr646K": {
+      "address": "BZLbGTNCSFfoth2GYDtwr7e4imWzpR5jqcUuGEwr646K",
+      "symbol": "IO",
+      "name": "IO",
+      "decimals": 8,
+      "logoURI": "https://bafkreicnqsbhpzxiasdm5esr7fqi3vcjvcbfefo4sq4y3ff747rfqf7w7i.ipfs.nftstorage.link",
+      "tags": [
+        "community"
+      ],
+      "verified": true,
+      "source": "jupiter"
+    },
+    "AVw2QGVkXJPRPRjLAceXVoLqU5DVtJ53mdgMXp14yGit": {
+      "address": "AVw2QGVkXJPRPRjLAceXVoLqU5DVtJ53mdgMXp14yGit",
+      "symbol": "AVW2...YGIT",
+      "name": "Unknown Token (AVW2...YGIT)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "LAYER4xPpTCb3QL8S9u41EAhAX7mhBn8Q6xMTwY2Yzc": {
+      "address": "LAYER4xPpTCb3QL8S9u41EAhAX7mhBn8Q6xMTwY2Yzc",
+      "symbol": "LAYE...2YZC",
+      "name": "Unknown Token (LAYE...2YZC)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "3kRSZBRUYvXGJ8t3mtYEYBXEgEZevADd2Se7M1AYP6WN": {
+      "address": "3kRSZBRUYvXGJ8t3mtYEYBXEgEZevADd2Se7M1AYP6WN",
+      "symbol": "3KRS...P6WN",
+      "name": "Unknown Token (3KRS...P6WN)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv": {
+      "address": "2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv",
+      "symbol": "2ZMM...UAUV",
+      "name": "Unknown Token (2ZMM...UAUV)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "rndrizKT3MK1iimdxRdWabcF7Zg7AR5T4nud4EkHBof": {
+      "address": "rndrizKT3MK1iimdxRdWabcF7Zg7AR5T4nud4EkHBof",
+      "symbol": "RENDER",
+      "name": "Render Token",
+      "decimals": 8,
+      "logoURI": "https://shdw-drive.genesysgo.net/5zseP54TGrcz9C8HdjZwJJsZ6f3VbP11p1abwKWGykZH/rndr.png",
+      "tags": [
+        "community"
+      ],
+      "verified": true,
+      "source": "jupiter"
+    },
+    "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump": {
+      "address": "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump",
+      "symbol": "9BB6...PUMP",
+      "name": "Unknown Token (9BB6...PUMP)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "G48VjpiiQoj4zesrch6vnNQYcVSNKojmsLAuuLpHDzAE": {
+      "address": "G48VjpiiQoj4zesrch6vnNQYcVSNKojmsLAuuLpHDzAE",
+      "symbol": "G48V...DZAE",
+      "name": "Unknown Token (G48V...DZAE)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "3NZ9JMVBmGAqocybic2c7LQCJScmgsAZ6vQqTDzcqmJh": {
+      "address": "3NZ9JMVBmGAqocybic2c7LQCJScmgsAZ6vQqTDzcqmJh",
+      "symbol": "WBTC",
+      "name": "Wrapped BTC (Portal)",
+      "decimals": 8,
+      "logoURI": "https://raw.githubusercontent.com/wormhole-foundation/wormhole-token-list/main/assets/WBTC_wh.png",
+      "tags": [
+        "wormhole",
+        "community",
+        "solana-fm"
+      ],
+      "verified": true,
+      "source": "jupiter"
+    },
+    "KMNo3nJsBXfcpJTVhZcXLW7RmTwTt4GVFE7suUBo9sS": {
+      "address": "KMNo3nJsBXfcpJTVhZcXLW7RmTwTt4GVFE7suUBo9sS",
+      "symbol": "KMNO",
+      "name": "Kamino",
+      "decimals": 6,
+      "logoURI": "https://cdn.kamino.finance/kamino.svg",
+      "tags": [
+        "community"
+      ],
+      "verified": true,
+      "source": "jupiter"
+    },
+    "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn": {
+      "address": "pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn",
+      "symbol": "PUMP...9DFN",
+      "name": "Unknown Token (PUMP...9DFN)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "CRAMvzDsSpXYsFpcoDr6vFLJMBeftez1E7277xwPpump": {
+      "address": "CRAMvzDsSpXYsFpcoDr6vFLJMBeftez1E7277xwPpump",
+      "symbol": "CRAM...PUMP",
+      "name": "Unknown Token (CRAM...PUMP)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "ALTP6gug9wv5mFtx2tSU1YYZ1NrEc2chDdMPoJA8f8pu": {
+      "address": "ALTP6gug9wv5mFtx2tSU1YYZ1NrEc2chDdMPoJA8f8pu",
+      "symbol": "ALTP...F8PU",
+      "name": "Unknown Token (ALTP...F8PU)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "9tqjeRS1swj36Ee5C1iGiwAxjQJNGAVCzaTLwFY8bonk": {
+      "address": "9tqjeRS1swj36Ee5C1iGiwAxjQJNGAVCzaTLwFY8bonk",
+      "symbol": "9TQJ...BONK",
+      "name": "Unknown Token (9TQJ...BONK)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "Ey59PH7Z4BFU4HjyKnyMdWt5GGN76KazTAwQihoUXRnk": {
+      "address": "Ey59PH7Z4BFU4HjyKnyMdWt5GGN76KazTAwQihoUXRnk",
+      "symbol": "EY59...XRNK",
+      "name": "Unknown Token (EY59...XRNK)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN": {
+      "address": "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN",
+      "symbol": "6P6X...GIPN",
+      "name": "Unknown Token (6P6X...GIPN)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "jokeSc37tSJ5V5MYTmLtKh3SZf11vWd2i8eZC9sd74m": {
+      "address": "jokeSc37tSJ5V5MYTmLtKh3SZf11vWd2i8eZC9sd74m",
+      "symbol": "JOKE...D74M",
+      "name": "Unknown Token (JOKE...D74M)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "3Nf6jFEFKtTgnJBpThEisWVPA3WSzsjSdZvUWDP117AF": {
+      "address": "3Nf6jFEFKtTgnJBpThEisWVPA3WSzsjSdZvUWDP117AF",
+      "symbol": "3NF6...17AF",
+      "name": "Unknown Token (3NF6...17AF)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "85VBFQZC9TZkfaptBWjvUw7YbZjy52A6mjtPGjstQAmQ": {
+      "address": "85VBFQZC9TZkfaptBWjvUw7YbZjy52A6mjtPGjstQAmQ",
+      "symbol": "W",
+      "name": "Wormhole Token",
+      "decimals": 6,
+      "logoURI": "https://wormhole.com/token.png",
+      "tags": [
+        "community"
+      ],
+      "verified": true,
+      "source": "jupiter"
+    },
+    "FuyeX8cpctBwQVDFYgKxYh1JgiXCkK9g4RBVCXm4pump": {
+      "address": "FuyeX8cpctBwQVDFYgKxYh1JgiXCkK9g4RBVCXm4pump",
+      "symbol": "FUYE...PUMP",
+      "name": "Unknown Token (FUYE...PUMP)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "radRWCnHKAQyTFyUgVpdmmVUL2PjNtJnkQ38ny3Q7RZ": {
+      "address": "radRWCnHKAQyTFyUgVpdmmVUL2PjNtJnkQ38ny3Q7RZ",
+      "symbol": "RADR...Q7RZ",
+      "name": "Unknown Token (RADR...Q7RZ)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "2b1kV6DkPAnxd5ixfnxCpjxmKwqjjaYmCZfHsFu24GXo": {
+      "address": "2b1kV6DkPAnxd5ixfnxCpjxmKwqjjaYmCZfHsFu24GXo",
+      "symbol": "PYUSD",
+      "name": "PayPal USD",
+      "decimals": 6,
+      "logoURI": "https://424565.fs1.hubspotusercontent-na1.net/hubfs/424565/PYUSDLOGO.png",
+      "tags": [
+        "community",
+        "token-2022"
+      ],
+      "verified": true,
+      "source": "jupiter"
+    },
+    "73xsLcBnLnc9bh81cqVKqj8uEyiarXng5ZwJuTbnVebG": {
+      "address": "73xsLcBnLnc9bh81cqVKqj8uEyiarXng5ZwJuTbnVebG",
+      "symbol": "WUF",
+      "name": "Wuffi",
+      "decimals": 4,
+      "logoURI": "https://raw.githubusercontent.com/wuffi-inu/wuffi-inu.github.io/release-1.1.0/assets/wuffi-on-chain-image.png",
+      "tags": [
+        "community"
+      ],
+      "verified": true,
+      "source": "jupiter"
+    },
+    "DrZ26cKJDksVRWib3DVVsjo9eeXccc7hKhDJviiYEEZY": {
+      "address": "DrZ26cKJDksVRWib3DVVsjo9eeXccc7hKhDJviiYEEZY",
+      "symbol": "DRZ2...EEZY",
+      "name": "Unknown Token (DRZ2...EEZY)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "8NCievmJCg2d9Vc2TWgz2HkE6ANeSX7kwvdq5AL7pump": {
+      "address": "8NCievmJCg2d9Vc2TWgz2HkE6ANeSX7kwvdq5AL7pump",
+      "symbol": "8NCI...PUMP",
+      "name": "Unknown Token (8NCI...PUMP)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "Dt6vESocrRixuFz2taZunygpKcNQwxAjUMgYUxvNpump": {
+      "address": "Dt6vESocrRixuFz2taZunygpKcNQwxAjUMgYUxvNpump",
+      "symbol": "DT6V...PUMP",
+      "name": "Unknown Token (DT6V...PUMP)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "9zNQRsGLjNKwCUU5Gq5LR8beUCPzQMVMqKAi3SSZh54u": {
+      "address": "9zNQRsGLjNKwCUU5Gq5LR8beUCPzQMVMqKAi3SSZh54u",
+      "symbol": "9ZNQ...H54U",
+      "name": "Unknown Token (9ZNQ...H54U)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "5fKr9joRHpioriGmMgRVFdmZge8EVUTbrWyxDVdSrcuG": {
+      "address": "5fKr9joRHpioriGmMgRVFdmZge8EVUTbrWyxDVdSrcuG",
+      "symbol": "5FKR...RCUG",
+      "name": "Unknown Token (5FKR...RCUG)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "67L15VsmduEYFhHdApFzHGSXmYZPZhRVpKiXStvHBnFj": {
+      "address": "67L15VsmduEYFhHdApFzHGSXmYZPZhRVpKiXStvHBnFj",
+      "symbol": "67L1...BNFJ",
+      "name": "Unknown Token (67L1...BNFJ)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "FVvd3s9dZYzsgitkJyWbmycSc8MkYZjyF7oqAEvmSxTZ": {
+      "address": "FVvd3s9dZYzsgitkJyWbmycSc8MkYZjyF7oqAEvmSxTZ",
+      "symbol": "FVVD...SXTZ",
+      "name": "Unknown Token (FVVD...SXTZ)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "2u1tszSeqZ3qBWF3uNGPFc8TzMk2tdiwknnRMWGWjGWH": {
+      "address": "2u1tszSeqZ3qBWF3uNGPFc8TzMk2tdiwknnRMWGWjGWH",
+      "symbol": "2U1T...JGWH",
+      "name": "Unknown Token (2U1T...JGWH)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "27G8MtK7VtTcCHkpASjSDdkWWYfoqT6ggEuKidVJidD4": {
+      "address": "27G8MtK7VtTcCHkpASjSDdkWWYfoqT6ggEuKidVJidD4",
+      "symbol": "JLP",
+      "name": "Jupiter Perps",
+      "decimals": 6,
+      "logoURI": "https://static.jup.ag/jlp/icon.png",
+      "tags": [
+        "community"
+      ],
+      "verified": true,
+      "source": "jupiter"
+    },
+    "Grass7B4RdKfBCjTKgSqnXkqjwiGvQyFbuSCUJr3XXjs": {
+      "address": "Grass7B4RdKfBCjTKgSqnXkqjwiGvQyFbuSCUJr3XXjs",
+      "symbol": "GRAS...XXJS",
+      "name": "Unknown Token (GRAS...XXJS)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    },
+    "DFL1zNkaGPWm1BqAVqRjCZvHmwTFrEaJtbzJWgseoNJh": {
+      "address": "DFL1zNkaGPWm1BqAVqRjCZvHmwTFrEaJtbzJWgseoNJh",
+      "symbol": "DFL",
+      "name": "DeFi Land",
+      "decimals": 9,
+      "logoURI": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/DFL1zNkaGPWm1BqAVqRjCZvHmwTFrEaJtbzJWgseoNJh/logo.png",
+      "tags": [
+        "old-registry"
+      ],
+      "verified": true,
+      "source": "jupiter"
+    },
+    "MEFNBXixkEbait3xn9bkm8WsJzXtVsaJEn4c8Sam21u": {
+      "address": "MEFNBXixkEbait3xn9bkm8WsJzXtVsaJEn4c8Sam21u",
+      "symbol": "MEFN...M21U",
+      "name": "Unknown Token (MEFN...M21U)",
+      "decimals": 6,
+      "tags": [
+        "unregistered"
+      ],
+      "verified": false,
+      "source": "unknown"
+    }
+  }
+}
