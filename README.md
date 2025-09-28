@@ -383,28 +383,18 @@ The current static approach prioritizes reliability over real-time data, but fut
 
 **Privacy & Data Management**
 - Analytics tracking consent management
-- Data export functionality (position history, tax reports)
+- Data export functionality
 - Cache management and auto-refresh intervals
 - API usage analytics and quota monitoring
 - Settings backup and recovery system
 
 **Advanced User Features**
 - Expert mode for advanced trading options
-- Developer options with transaction details and debug info
-- Beta feature opt-in for experimental functionality
-- Custom CSS theme editor for power users
-- Keyboard shortcuts configuration
 
 **Accessibility Improvements**
-- High contrast mode for better visibility
-- Font size adjustment options
-- Screen reader compatibility enhancements
-- Keyboard navigation optimization
-- Color blind friendly palette options
+- Night Mode
 
 **Performance & Optimization**
 - Data refresh rate customization
-- Lazy loading preferences for large portfolios
 - Animation and transition toggles
-- Memory usage optimization settings
 - Offline mode for basic functionality
