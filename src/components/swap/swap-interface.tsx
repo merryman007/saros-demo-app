@@ -6,6 +6,7 @@ import { Pool } from "@/lib/pools";
 import { TokenSelector } from "./token-selector";
 import { SwapPreview } from "./swap-preview";
 import { getTokenInfo } from "@/lib/token-registry";
+import { walletBalanceService } from "@/lib/wallet-balance-service";
 import { ArrowUpDown, Settings, Info } from "lucide-react";
 
 interface SwapInterfaceProps {
@@ -47,6 +48,8 @@ export function SwapInterface({ pools }: SwapInterfaceProps) {
 
   const [showSettings, setShowSettings] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [tokenBalances, setTokenBalances] = useState<Record<string, number>>({});
+  const [loadingBalances, setLoadingBalances] = useState(false);
 
   // Extract unique tokens from all pools with proper symbol mapping
   const availableTokens = useMemo(() => {
@@ -120,9 +123,63 @@ export function SwapInterface({ pools }: SwapInterfaceProps) {
     }
   }, [availablePools]);
 
-  // Calculate estimated output amount using real DLMM quotes
+  // Load wallet balances only for selected tokens to avoid rate limits
   useEffect(() => {
-    const calculateOutput = async () => {
+    const loadBalances = async () => {
+      if (!connected || !publicKey) {
+        setTokenBalances({});
+        return;
+      }
+
+      // Only load balances for currently selected tokens
+      const tokensToLoad = [];
+      if (swapState.fromToken) {
+        tokensToLoad.push({
+          mintAddress: swapState.fromToken.mintAddress,
+          decimals: swapState.fromToken.decimals,
+        });
+      }
+      if (swapState.toToken) {
+        tokensToLoad.push({
+          mintAddress: swapState.toToken.mintAddress,
+          decimals: swapState.toToken.decimals,
+        });
+      }
+
+      if (tokensToLoad.length === 0) {
+        setTokenBalances({});
+        return;
+      }
+
+      setLoadingBalances(true);
+      try {
+        const balances = await walletBalanceService.getMultipleTokenBalances(
+          publicKey.toString(),
+          tokensToLoad
+        );
+
+        const balanceMap: Record<string, number> = {};
+        Object.values(balances).forEach(balance => {
+          balanceMap[balance.mintAddress] = balance.uiAmount;
+        });
+
+        setTokenBalances(prev => ({
+          ...prev,
+          ...balanceMap
+        }));
+      } catch (error) {
+        console.error("Error loading wallet balances:", error);
+      } finally {
+        setLoadingBalances(false);
+      }
+    };
+
+    loadBalances();
+  }, [connected, publicKey, swapState.fromToken, swapState.toToken]);
+
+  // Simple estimated output calculation (no API calls to avoid rate limits)
+  useEffect(() => {
+    const calculateOutput = () => {
       if (
         swapState.fromAmount &&
         swapState.selectedPool &&
@@ -132,41 +189,19 @@ export function SwapInterface({ pools }: SwapInterfaceProps) {
       ) {
         const fromAmountNum = parseFloat(swapState.fromAmount);
         if (!isNaN(fromAmountNum) && fromAmountNum > 0) {
-          try {
-            // Use real DLMM swap service for accurate quotes
-            const { swapService } = await import('@/lib/swap-service');
-
-            const quote = await swapService.getSwapQuote({
-              fromToken: {
-                mintAddress: swapState.fromToken.mintAddress,
-                decimals: swapState.fromToken.decimals,
-              },
-              toToken: {
-                mintAddress: swapState.toToken.mintAddress,
-                decimals: swapState.toToken.decimals,
-              },
-              amount: swapState.fromAmount,
-              isExactInput: true,
-              pool: swapState.selectedPool,
-              slippage: swapState.slippage,
-            });
-
-            setSwapState(prev => ({
-              ...prev,
-              toAmount: parseFloat(quote.amountOut).toFixed(6)
-            }));
-          } catch (error) {
-            console.warn('Failed to get real quote, using estimate:', error);
-            // Fallback to simple estimation
-            const estimatedOutput = fromAmountNum * 0.998; // 0.2% rough fee estimate
-            setSwapState(prev => ({ ...prev, toAmount: estimatedOutput.toFixed(6) }));
-          }
+          // Simple estimation based on fee rate to avoid API calls during typing
+          const feeRate = swapState.selectedPool.feeRate || 0.003;
+          const estimatedOutput = fromAmountNum * (1 - feeRate);
+          setSwapState(prev => ({ ...prev, toAmount: estimatedOutput.toFixed(6) }));
+        } else {
+          setSwapState(prev => ({ ...prev, toAmount: '' }));
         }
+      } else {
+        setSwapState(prev => ({ ...prev, toAmount: '' }));
       }
     };
 
-    const debounceTimer = setTimeout(calculateOutput, 500); // Debounce API calls
-    return () => clearTimeout(debounceTimer);
+    calculateOutput();
   }, [swapState.fromAmount, swapState.selectedPool, swapState.fromToken, swapState.toToken, swapState.swapType, swapState.slippage]);
 
   const handleTokenSelect = (type: 'from' | 'to', token: Token) => {
@@ -220,6 +255,22 @@ export function SwapInterface({ pools }: SwapInterfaceProps) {
 
     if (!connected || !publicKey || !signTransaction) {
       alert('Please connect your wallet first to perform swaps.');
+      return;
+    }
+
+    // Check if user has sufficient balance
+    const fromAmount = parseFloat(swapState.fromAmount);
+    const userBalance = tokenBalances[swapState.fromToken.mintAddress] || 0;
+    
+    if (fromAmount > userBalance) {
+      alert(`Insufficient balance. You have ${userBalance.toFixed(6)} ${swapState.fromToken.symbol} but trying to swap ${fromAmount}`);
+      return;
+    }
+
+    // For SOL, ensure user keeps enough for transaction fees
+    if (swapState.fromToken.mintAddress === "So11111111111111111111111111111111111111112" && 
+        fromAmount > (userBalance - 0.01)) {
+      alert('Please leave at least 0.01 SOL for transaction fees.');
       return;
     }
 
@@ -355,7 +406,14 @@ export function SwapInterface({ pools }: SwapInterfaceProps) {
           <div className="bg-gray-800 rounded-lg p-4">
             <div className="flex justify-between items-center mb-2">
               <span className="text-gray-400 text-sm">From</span>
-              <span className="text-gray-400 text-sm">Balance: 0.00</span>
+              <span className="text-gray-400 text-sm">
+                Balance: {
+                  loadingBalances ? "..." : 
+                  swapState.fromToken 
+                    ? (tokenBalances[swapState.fromToken.mintAddress] || 0).toFixed(6)
+                    : "0.00"
+                }
+              </span>
             </div>
             <div className="flex items-center gap-4">
               <TokenSelector
@@ -364,13 +422,30 @@ export function SwapInterface({ pools }: SwapInterfaceProps) {
                 onSelect={(token) => handleTokenSelect('from', token)}
                 placeholder="Select token"
               />
-              <input
-                type="text"
-                value={swapState.fromAmount}
-                onChange={(e) => handleAmountChange('from', e.target.value)}
-                placeholder="0.0"
-                className="flex-1 bg-transparent text-right text-white text-xl font-semibold placeholder-gray-500 outline-none"
-              />
+              <div className="flex-1 flex items-center gap-2">
+                <input
+                  type="text"
+                  value={swapState.fromAmount}
+                  onChange={(e) => handleAmountChange('from', e.target.value)}
+                  placeholder="0.0"
+                  className="flex-1 bg-transparent text-right text-white text-xl font-semibold placeholder-gray-500 outline-none"
+                />
+                {swapState.fromToken && tokenBalances[swapState.fromToken.mintAddress] > 0 && (
+                  <button
+                    onClick={() => {
+                      const maxBalance = tokenBalances[swapState.fromToken!.mintAddress];
+                      // Leave a small amount for fees if it's SOL
+                      const maxAmount = swapState.fromToken!.mintAddress === "So11111111111111111111111111111111111111112" 
+                        ? Math.max(0, maxBalance - 0.01)
+                        : maxBalance;
+                      handleAmountChange('from', maxAmount.toString());
+                    }}
+                    className="px-2 py-1 bg-purple-600 hover:bg-purple-700 text-white text-xs font-medium rounded transition-colors"
+                  >
+                    MAX
+                  </button>
+                )}
+              </div>
             </div>
           </div>
 
@@ -389,7 +464,14 @@ export function SwapInterface({ pools }: SwapInterfaceProps) {
           <div className="bg-gray-800 rounded-lg p-4">
             <div className="flex justify-between items-center mb-2">
               <span className="text-gray-400 text-sm">To</span>
-              <span className="text-gray-400 text-sm">Balance: 0.00</span>
+              <span className="text-gray-400 text-sm">
+                Balance: {
+                  loadingBalances ? "..." : 
+                  swapState.toToken 
+                    ? (tokenBalances[swapState.toToken.mintAddress] || 0).toFixed(6)
+                    : "0.00"
+                }
+              </span>
             </div>
             <div className="flex items-center gap-4">
               <TokenSelector

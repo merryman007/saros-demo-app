@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Sidebar } from "./sidebar";
-import { WalletButton, WalletStatus } from "@/components/wallet/wallet-button";
+import { ClientOnlyWalletButton, ClientOnlyWalletStatus } from "@/components/wallet/client-only-wallet";
 
 export function DashboardLayout({ children }: { children: React.ReactNode }) {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
@@ -23,9 +23,9 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <h1 className="text-lg font-semibold text-white">SAROS DLMM</h1>
-              <WalletStatus />
+              <ClientOnlyWalletStatus />
             </div>
-            <WalletButton />
+            <ClientOnlyWalletButton />
           </div>
         </header>
 

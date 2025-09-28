@@ -15,6 +15,7 @@ export interface Pool {
     decimals: number;
   };
   binStep: number;
+  feeRate: number;
   tvl: number;
   volume24h: number;
   fees24h: number;

@@ -120,6 +120,7 @@ export function convertEnhancedPoolToPool(enhancedPool: EnhancedPoolData): Pool 
       decimals: enhancedPool.tokenY.decimals,
     },
     binStep: enhancedPool.binStep,
+    feeRate: enhancedPool.feeRate,
     tvl: Math.round(enhancedPool.tvl * 100) / 100,
     volume24h: Math.round(enhancedPool.analytics.estimatedVolume24h * 100) / 100,
     fees24h: Math.round(enhancedPool.analytics.estimatedFees24h * 100) / 100,

@@ -90,6 +90,7 @@ export function convertRealPoolToPool(realPool: RealPoolData): Pool {
     tokenX: getTokenInfo(raw.baseMint, realPool.poolName),
     tokenY: getTokenInfo(raw.quoteMint, realPool.poolName),
     binStep: raw.tradeFee, // Using tradeFee as binStep approximation
+    feeRate: raw.tradeFee / 10000, // Convert from basis points to decimal
     tvl: Math.round(tvl),
     volume24h: Math.round(volume24h),
     fees24h: Math.round(fees24h * 100) / 100,
