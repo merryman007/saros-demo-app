@@ -63,7 +63,7 @@ export class TokenService {
     ];
   }
 
-  private static getPopularTokens(): Token[] {
+  public static getPopularTokens(): Token[] {
     // Define popular tokens with their known addresses
     const popularTokenAddresses = [
       // SOL (wrapped SOL)

@@ -2,6 +2,16 @@
 
 import { useState, useEffect } from "react";
 import { Pool } from "@/lib/pools";
+
+interface BinData {
+  binId: number;
+  price: number;
+  reserveXAmount: number;
+  reserveYAmount: number;
+  totalLiquidity: number;
+  isActive: boolean;
+  utilization?: number;
+}
 import { loadRealBinData } from "@/lib/analytics-data";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
@@ -13,7 +23,7 @@ interface LiquidityDistributionAnalyticsProps {
 
 export function LiquidityDistributionAnalytics({ pools }: LiquidityDistributionAnalyticsProps) {
   const [selectedPool, setSelectedPool] = useState<string>(pools[0]?.address || "");
-  const [binData, setBinData] = useState<any[]>([]);
+  const [binData, setBinData] = useState<BinData[]>([]);
   const [loading, setLoading] = useState(false);
 
   const pool = pools.find(p => p.address === selectedPool);

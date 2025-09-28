@@ -1,12 +1,17 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { DeFiHubInterface } from "@/components/defi-hub/defi-hub-interface";
 
-export default function DeFiHubPage() {
+function DeFiHubContent() {
   const searchParams = useSearchParams();
   const initialTab = searchParams.get("tab") || "positions";
 
+  return <DeFiHubInterface initialTab={initialTab} />;
+}
+
+export default function DeFiHubPage() {
   return (
     <div className="container mx-auto p-6">
       <div className="mb-6">
@@ -16,7 +21,9 @@ export default function DeFiHubPage() {
         </p>
       </div>
       
-      <DeFiHubInterface initialTab={initialTab} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <DeFiHubContent />
+      </Suspense>
     </div>
   );
 }

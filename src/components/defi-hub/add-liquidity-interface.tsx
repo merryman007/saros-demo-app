@@ -20,6 +20,7 @@ interface FormData {
 
 export function AddLiquidityInterface() {
   const { connected, publicKey, signTransaction } = useWallet();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { connection } = useConnection();
   
   const [formData, setFormData] = useState<FormData>({
@@ -388,7 +389,7 @@ export function AddLiquidityInterface() {
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 max-h-48 overflow-y-auto">
-                {liquidityDistribution.map((dist, index) => (
+                {liquidityDistribution.map((dist) => (
                   <div key={dist.relativeBinId} className="flex items-center justify-between bg-gray-800 p-2 rounded text-xs">
                     <span className="text-gray-300">
                       Bin {dist.relativeBinId >= 0 ? '+' : ''}{dist.relativeBinId}
