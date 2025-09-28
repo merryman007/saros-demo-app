@@ -106,10 +106,23 @@ export default function HomePage() {
     <div className="min-h-screen p-6">
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-2xl font-bold text-white mb-2">DLMM Pools</h1>
-          <p className="text-gray-400">
-            Discover active liquidity pools with real-time metrics and performance data
-          </p>
+          <div className="flex justify-between items-start">
+            <div>
+              <h1 className="text-2xl font-bold text-white mb-2">DLMM Pools</h1>
+              <p className="text-gray-400">
+                Discover active liquidity pools with real-time metrics and performance data
+              </p>
+            </div>
+            <Link 
+              href="/defi-hub?tab=create-pool"
+              className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center gap-2"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 5V19M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              Create Pool
+            </Link>
+          </div>
           <div className="mt-4 flex justify-end">
             <Link href="/analytics" className="text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors">
               View More →

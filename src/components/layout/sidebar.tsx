@@ -7,7 +7,7 @@ import {
   X,
   Settings,
   TrendingUp,
-  Wallet,
+  Zap,
   Activity,
   ArrowLeftRight,
 } from "lucide-react";
@@ -34,11 +34,11 @@ const menuItems = [
     description: "Performance metrics",
   },
   {
-    icon: Wallet,
-    label: "Portfolio",
-    href: "/portfolio",
-    description: "Your positions",
-    disabled: true,
+    icon: Zap,
+    label: "DeFi Hub",
+    href: "/defi-hub",
+    description: "Create pools, add/remove liquidity",
+    disabled: false,
   },
   {
     icon: Activity,

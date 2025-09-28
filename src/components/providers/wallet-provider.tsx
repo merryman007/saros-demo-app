@@ -21,11 +21,13 @@ import '@solana/wallet-adapter-react-ui/styles.css';
 export function WalletProviders({ children }: { children: React.ReactNode }) {
   const network = WalletAdapterNetwork.Mainnet;
 
-  // Use custom RPC or fallback to public endpoint
-  const endpoint = useMemo(
-    () => process.env.NEXT_PUBLIC_RPC_URL || clusterApiUrl(network),
-    [network]
-  );
+  // Use custom RPC or fallback to Helius RPC, then public endpoint
+  const endpoint = useMemo(() => {
+    const heliusRPC = "https://mainnet.helius-rpc.com/?api-key=25eb7563-a303-4783-8e62-535586261018";
+    const rpcUrl = process.env.NEXT_PUBLIC_RPC_URL || heliusRPC;
+    console.log('🌐 Wallet using RPC endpoint:', rpcUrl);
+    return rpcUrl;
+  }, []);
 
   // Configure wallets - Phantom first as it's most popular on Solana
   const wallets = useMemo(

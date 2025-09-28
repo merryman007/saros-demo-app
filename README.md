@@ -321,3 +321,90 @@ Cached Data (Fast) → Real-Time Fetch (Selective) → Rate Limit Protection
 - Allows offline development and testing
 
 The current static approach prioritizes reliability over real-time data, but future versions will support both modes based on user preference and API quota availability.
+
+## 💡 Trading Feature Enhancement Suggestions
+
+**Contract Address Tickers**
+- Implement dynamic ticker generation for contract addresses throughout the UI
+- Replace long contract addresses with user-friendly tickers in pool displays
+- Auto-generate readable names for unknown tokens (e.g., `ABC123...xyz789` → `ABC-XYZ`)
+- Note: Implementation complexity requires careful consideration to avoid breaking existing integrations
+
+**Advanced Order Types**
+- Limit orders with price targets
+- Stop-loss and take-profit orders
+- Dollar cost averaging with automated recurring swaps
+
+**Trading Analytics**
+- Price charts with historical data visualization
+- Volume analysis and liquidity metrics
+- Arbitrage detection across pools
+
+**Portfolio Management**
+- Trading history and transaction tracking
+- P&L analysis with profit/loss calculations
+- Position monitoring across multiple pools
+
+**Advanced Trading Tools**
+- Multi-hop routing for optimal swap prices
+- MEV protection against front-running
+- Batch trading for multiple swaps in one transaction
+
+## ⚙️ App Settings & User Experience Improvements
+
+**Wallet & Security Settings**
+- Default slippage tolerance configuration (0.1%, 0.5%, 1.0%, 2.0%, Custom)
+- Transaction deadline preferences (10 min, 20 min, 30 min, Custom)
+- Auto-approve transactions toggle for power users
+- Gas price preference settings (Slow, Standard, Fast, Custom)
+- RPC endpoint selection for advanced users
+
+**Interface & Display Preferences**
+- Theme selection (Dark, Light, Auto-system detection)
+- Currency display options (USD, EUR, SOL, Native tokens)
+- Multi-language support (English, Spanish, Chinese, Japanese)
+- Number format localization (US: 1,234.56, EU: 1.234,56)
+- Timezone settings for transaction history
+
+**Notifications & Alerts System**
+- Price alert configuration for position monitoring
+- Out-of-range position notifications
+- Transaction success/failure alerts
+- Email notification preferences for weekly summaries
+- Browser push notifications for important updates
+- Discord/Telegram webhook integration for alerts
+
+**Data Display & Analytics**
+- Default view preferences (List, Grid, Compact views)
+- Position sorting defaults (Value, APY, Fees, Date created)
+- Chart timeframe preferences (1H, 4H, 1D, 1W default)
+- Hide small balances threshold ($1, $5, $10, Custom)
+- Performance metric visibility toggles
+
+**Privacy & Data Management**
+- Analytics tracking consent management
+- Data export functionality (position history, tax reports)
+- Cache management and auto-refresh intervals
+- API usage analytics and quota monitoring
+- Settings backup and recovery system
+
+**Advanced User Features**
+- Expert mode for advanced trading options
+- Developer options with transaction details and debug info
+- Beta feature opt-in for experimental functionality
+- Custom CSS theme editor for power users
+- Keyboard shortcuts configuration
+
+**Accessibility Improvements**
+- High contrast mode for better visibility
+- Font size adjustment options
+- Screen reader compatibility enhancements
+- Keyboard navigation optimization
+- Color blind friendly palette options
+
+**Performance & Optimization**
+- Data refresh rate customization
+- Lazy loading preferences for large portfolios
+- Animation and transition toggles
+- Memory usage optimization settings
+- Offline mode for basic functionality
